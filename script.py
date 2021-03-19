@@ -58,6 +58,8 @@ def processDataFunction(sport):
     time_df = df[['total_activity_time', 'avg_time']]
     other_df = df[['activities', 'activity_calories']]
   
+  # time_cols = ['total_activity_time', 'avg_time', 'max_time', 'average_pace']
+  # other_cols = ['activities', 'total_distance', 'average_distance', 'max_distance', 'activity_calories', 'total_elev_gain', 'avg_elevation_gain', 'max_elevation_gain', 'average_heart_rate']
   # df1 = df.apply(lambda x: times_function(x) if x.name in time_cols else x)
   # df1 = df.apply(lambda x: other_function(x) if x.name in other_cols else x)
   df1 = time_df.applymap(times_function)
@@ -71,7 +73,7 @@ def processDataFunction(sport):
   print(result.head())
   print("------------------")
 
-  result.to_csv('./data_out/' + sport + '.csv', encoding='utf-8')
+  # result.to_csv('./data_out/' + sport + '.csv', encoding='utf-8')
 
 sports = ["swim", "cycle", "run", "strength"]
 for sport in sports:
